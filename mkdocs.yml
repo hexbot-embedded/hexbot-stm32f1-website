@@ -1,4 +1,31 @@
-site_name: My Docs
+site_name: HEXBOT STM32 文档
+# site_url:
+
+repo_name: H-STM32
+repo_url: https://github.com/H3XBOT/H-STM32
+
 
 theme:
   name: material
+  language: zh
+
+  static_templates:
+    - 404.html
+
+  include_search_page: false
+  search_index_only: true
+
+nav:
+  - 前言: "index.md"
+  - 简介:
+    - 简介: "简介.md"
+  - 编程环境:
+    - STM32工具链:
+      - STM32CubeIDE: "STM32工具链/STM32CubeIDE.md"
+      - STM32CubeMX: "STM32工具链/STM32CubeMX.md"
+      - STM32Programmer: "STM32工具链/STM32Programmer.md"
+      - STM32Utility: "STM32工具链/STM32Utility.md"
+  - 实验:
+    - GPIO点灯: "实验/GPIO亮灯/GPIO_LED.md"
+    - 外部中断: "实验/外部中断/GPIO_LED.md"
+    - 电子时钟: "实验/外部中断/OLED_Clock.md"
