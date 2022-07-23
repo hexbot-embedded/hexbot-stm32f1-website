@@ -1,6 +1,6 @@
-# Welcome to MkDocs
+# HEXBOT STM32 文档
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+通过阅读本文档，你将可以上手使用STM32F103系列芯片进行单片机项目开发。
 
 ## Commands
 
