@@ -18,14 +18,19 @@ theme:
 nav:
   - 前言: "index.md"
   - 简介:
-    - 简介: "简介.md"
+    - HEXBOT 产品介绍: "HEXBOT 产品介绍.md"
   - 编程环境:
     - STM32工具链:
       - STM32CubeIDE: "STM32工具链/STM32CubeIDE.md"
       - STM32CubeMX: "STM32工具链/STM32CubeMX.md"
       - STM32Programmer: "STM32工具链/STM32Programmer.md"
       - STM32Utility: "STM32工具链/STM32Utility.md"
+      - 软件安装: "STM32工具链/STM32CubeIDE_Install.md"
   - 实验:
     - GPIO点灯: "实验/GPIO亮灯/GPIO_LED.md"
-    - 外部中断: "实验/外部中断/GPIO_LED.md"
+    - 外部中断: "实验/外部中断/外部中断.md"
+    - 蓝牙通信: "实验/蓝牙通信/BlueTooth_Communication.md"
+    - 7段码数码管: "实验/7段码数码管/7Segment.md"
+    - OLED驱动: "实验/OLED驱动/OLED1306.md"
     - 电子时钟: "实验/外部中断/OLED_Clock.md"
+    - CAN通信: "实验/CAN通信/CAN_Communication.md"

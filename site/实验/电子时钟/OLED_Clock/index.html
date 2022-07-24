@@ -1,0 +1,827 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+    
+    
+      
+        <title>OLED Clock - HEXBOT STM32 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="HEXBOT STM32 文档" class="md-header__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HEXBOT STM32 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OLED Clock
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/H3XBOT/H-STM32" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    H-STM32
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="HEXBOT STM32 文档" class="md-nav__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HEXBOT STM32 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/H3XBOT/H-STM32" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    H-STM32
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          简介
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="简介" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HEXBOT 产品介绍.md" class="md-nav__link">
+        HEXBOT 产品介绍
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          编程环境
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="编程环境" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          编程环境
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          STM32工具链
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="STM32工具链" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          STM32工具链
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE/" class="md-nav__link">
+        STM32CubeIDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeMX/" class="md-nav__link">
+        STM32CubeMX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Programmer/" class="md-nav__link">
+        STM32Programmer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Utility/" class="md-nav__link">
+        STM32Utility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE_Install/" class="md-nav__link">
+        软件安装
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          实验
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../GPIO%E4%BA%AE%E7%81%AF/GPIO_LED/" class="md-nav__link">
+        GPIO点灯
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
+        外部中断
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/BlueTooth_Communication/" class="md-nav__link">
+        蓝牙通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%E6%AE%B5%E7%A0%81%E6%95%B0%E7%A0%81%E7%AE%A1/7Segment/" class="md-nav__link">
+        7段码数码管
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-nav__link">
+        OLED驱动
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../实验/外部中断/OLED_Clock.md" class="md-nav__link">
+        电子时钟
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CAN%E9%80%9A%E4%BF%A1/CAN_Communication/" class="md-nav__link">
+        CAN通信
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    电子时钟
+  </a>
+  
+    <nav class="md-nav" aria-label="电子时钟">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    电子时钟简介
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    硬件设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    软件设计
+  </a>
+  
+    <nav class="md-nav" aria-label="软件设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cubemx" class="md-nav__link">
+    CUBEMX芯片引脚分配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    程序编程
+  </a>
+  
+    <nav class="md-nav" aria-label="程序编程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oled_show" class="md-nav__link">
+    oled_show函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#check_sw" class="md-nav__link">
+    check_sw函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    实验现象
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/H3XBOT/H-STM32/edit/master/docs/实验/电子时钟/OLED_Clock.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>OLED Clock</h1>
+
+<h2 id="_1">电子时钟</h2>
+<h3 id="_2">电子时钟简介</h3>
+<p>本次实验的主要目的是使用HexBot设备为实验平台，利用单片机内部功能和拓展的外设，设计程序开发一个电子钟系统。</p>
+<p>所设计的电子钟系统具有以下功能：</p>
+<ol>
+<li>使用定时器中断实现1s的定时功能，并驱动LED灯使其闪烁；</li>
+<li>完成基本的时钟功能，通过OLED屏显示当前时间，正确走时和进位；</li>
+<li>完成万年历功能，通过 OLED屏显示是当前日期；</li>
+<li>可通过矩阵按键设置当前时间和日期；</li>
+<li>增加闹钟功能，可查看并设置闹钟时间，多个闹钟可以独立控制。</li>
+</ol>
+<p>学生可在上述基本功能下，拓展诸如可以通过通信模块进行时间校准、断电后可以保存时钟时间等功能。</p>
+<h3 id="_3">硬件设计</h3>
+<p>本次实验所使用到的HexBot硬件拓展板为:</p>
+<ol>
+<li>OLED拓展板</li>
+<li>Keyboard拓展板</li>
+</ol>
+<p>其中OLED拓展板安装在HexBot主板的J2接口，键盘keyboard拓展板安装在HexBot主板的J5接口。其硬件连接如下图所示：</p>
+<p><img src="OLED_Clock.assets/1.png" alt="img" style="zoom: 50%;" /></p>
+<p>在实验中，所设计的电子钟的图像界面将展示在OLED屏幕上，将选用键盘keyboard拓展板的四个开关sw1、sw2、sw3、sw4作为控制电子钟的按键，对电子钟显示内容进行切换和设置。</p>
+<h3 id="_4">软件设计</h3>
+<h4 id="cubemx">CUBEMX芯片引脚分配</h4>
+<p><img src="OLED_Clock.assets/2.png" alt="img" style="zoom:50%;" /></p>
+<p>其中OLED屏幕使用IIC协议驱动，因此将IIC2引脚进行配置；四个开关sw1-4使用PD4、PC3、PB6、PB0四个引脚，将其配置为GPIO­_Input模式；所驱动的两排LED灯使用PC4、PC5引脚，将其配置为GPIO_Output模式。</p>
+<p>由于需要使用单片机内部的定时器功能完成1s的定时，因此需要对时钟进行配置。这里选择开发板上的外部晶振，将芯片时钟配置为72Mhz。选择TIM1时钟通道，将其PSC设置为1999，CP设置为59999，使得产生的时钟脉冲间隔为1s。随后使能其中断。</p>
+<h4 id="_5">程序编程</h4>
+<p>在main函数里面开启TIM1通道的中断，并调用两个上层函数。</p>
+<pre><code class="language-c">/* USER CODE BEGIN 2 */
+  ssd1306_Init();
+  HAL_TIM_Base_Start_IT(&amp;htim1);
+  HAL_TIM_Base_Start_IT(&amp;htim2);
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+      mode_check();
+      oled_show();
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
+  }
+  /* USER CODE END 3 */
+}
+</code></pre>
+<p>下面将简要介绍几个较为重要的函数。 </p>
+<h5 id="oled_show">oled_show函数</h5>
+<p>功能：为依据状态码的不同，选择不同界面进行展示，并将OLED缓存中的数据显示在屏幕上。</p>
+<pre><code class="language-C">void oled_show(){
+    //clock mode
+    if(clockmode == 0){
+        show_time();
+    }
+    //calendar mode
+    else if(clockmode == 1){
+        show_calendar();
+    }
+    //alarm mode
+    else if(clockmode == 2){
+        show_alarm();
+    }
+    //set mode
+    else if(clockmode == 3 || clockmode == 4 || clockmode == 5){
+        show_set();
+    }
+    //error mode
+    else if(clockmode == 6){
+        show_error();
+    }
+    //unnormal
+    else {
+        clockmode = 0;
+    }
+
+    ssd1306_Fill(Black);
+    ssd1306_SetCursor(2,0);
+    ssd1306_WriteString(line1, Font_11x18, White);
+    ssd1306_SetCursor(2,18);
+    ssd1306_WriteString(line2, Font_11x18, White);
+    ssd1306_SetCursor(2,36);
+    ssd1306_WriteString(line3, Font_11x18, White);
+    ssd1306_UpdateScreen();
+    return;
+}
+</code></pre>
+<h5 id="check_sw">check_sw函数</h5>
+<p>功能：检测是否有按键被按下，以及按下的按键为哪个。</p>
+<pre><code class="language-C">//check which sw is pressed
+int check_sw(){
+    //check if sw1 is pressed
+    if(HAL_GPIO_ReadPin(GPIOD, SW1_Pin)){
+        HAL_Delay(10);
+        if(HAL_GPIO_ReadPin(GPIOD, SW1_Pin)){
+            return 1;
+        }
+    }
+
+    //check if sw2 is pressed
+    if(HAL_GPIO_ReadPin(GPIOD, SW2_Pin)){
+        HAL_Delay(10);
+        if(HAL_GPIO_ReadPin(GPIOD, SW2_Pin)){
+            return 2;
+        }
+    }
+
+    //check if sw3 is pressed
+    if(HAL_GPIO_ReadPin(GPIOB, SW3_Pin)){
+        HAL_Delay(10);
+        if(HAL_GPIO_ReadPin(GPIOB, SW3_Pin)){
+            return 3;
+        }
+    }
+
+    //check if sw4 is pressed
+    if(HAL_GPIO_ReadPin(GPIOB, SW4_Pin)){
+        HAL_Delay(10);
+        if(HAL_GPIO_ReadPin(GPIOB, SW4_Pin)){
+            return 4;
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p><br></p>
+<h3 id="_6"><strong>实验现象</strong></h3>
+<p>实验所设计的电子钟可以完成简单计时功能。</p>
+<p>其基本现象如下：</p>
+<p>HexBot主板上电后，默认进入计时功能界面</p>
+<p>按下sw4，开启时钟设置功能，轻触sw4可以切换设置位，sw3为加一，sw2为减一。结合sw2~4可对时钟时间进行修改。</p>
+<p><img src="OLED_Clock.assets/3.png" alt="img" style="zoom:80%;" /></p>
+<p>按下sw1，切换至日历界面</p>
+<p><img src="OLED_Clock.assets/4.png" alt="img" style="zoom:80%;" /></p>
+<p>再度按下sw1，切换到闹钟界面</p>
+<p><img src="OLED_Clock.assets/5.png" alt="img" style="zoom:80%;" /></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      
+    
+  </body>
+</html>

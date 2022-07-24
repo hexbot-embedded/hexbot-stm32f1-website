@@ -6,7 +6,7 @@
 
 ## 1 STM32CubeIDE的下载
 
-CubeIDE的官方下载地址：[https://www.st.com/zh/development-tools/stm32cubeide.html]()
+[CubeIDE官方下载地址](https://www.st.com/zh/development-tools/stm32cubeide.html)
 
 在官网可以下载最新版本和更多版本。
 
