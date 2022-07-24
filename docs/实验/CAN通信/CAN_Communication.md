@@ -1,6 +1,12 @@
-## can总线实现板间通信
+# can总线实验
 
-#### can总线简介
+本实验实现了两块HEXBOT STM32主板之间的CAN通信。
+
+前往[Github](https://github.com/H3XBOT/STM32F103-Code/tree/main/CAN%E9%80%9A%E4%BF%A1)下载本实验代码。
+
+<br>
+
+## can总线简介
 
 CAN是控制器局域网络(Controller Area Network, CAN)的简称，是由以研发和生产汽车电子产品著称的德国BOSCH公司开发的，并最终成为国际标准（ISO 11898），是国际上应用最广泛的现场总线之一。 在北美和西欧，CAN总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以CAN为底层协议专为大型货车和重工机械车辆设计的J1939协议。
 
@@ -13,7 +19,7 @@ CAN是控制器局域网络(Controller Area Network, CAN)的简称，是由以�
 
 本次实验则是将can总线用于板间通信，在定时器的基础上，通过can总线实现一个开发板上的按键，对另一个开发板所连oled屏幕的控制。
 
-#### can总线工作原理
+## can总线工作原理
 
 ![can总线原理图](CAN_Communication.assets/can%E6%80%BB%E7%BA%BF%E5%8E%9F%E7%90%86%E5%9B%BE.png)
 
@@ -25,9 +31,9 @@ CAN是控制器局域网络(Controller Area Network, CAN)的简称，是由以�
 
 ![](CAN_Communication.assets/can%E7%94%B5%E8%B7%AF%E5%9B%BE%E5%BC%95%E8%84%9A%E4%BB%8B%E7%BB%8D.png)
 
-#### 软件设计
+## 软件设计
 
-##### can总线发送的部分
+### can总线发送的部分
 
 CAN协议是通过以下5种类型的帧进行的：
 >数据帧  
