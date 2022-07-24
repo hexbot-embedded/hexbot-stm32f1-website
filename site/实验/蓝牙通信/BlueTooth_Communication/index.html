@@ -13,7 +13,7 @@
     
     
       
-        <title>BlueTooth Communication - HEXBOT STM32 文档</title>
+        <title>蓝牙通信 - HEXBOT STM32 文档</title>
       
     
     
@@ -92,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BlueTooth Communication
+              蓝牙通信
             
           </span>
         </div>
@@ -400,12 +400,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -444,6 +446,44 @@
     <li class="md-nav__item">
       <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
         外部中断
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        蓝牙通信
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-nav__link">
+        OLED驱动
       </a>
     </li>
   
@@ -501,95 +541,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    电子时钟
-  </a>
-  
-    <nav class="md-nav" aria-label="电子时钟">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    电子时钟简介
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    硬件设计
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    软件设计
-  </a>
-  
-    <nav class="md-nav" aria-label="软件设计">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#cubemx" class="md-nav__link">
-    CUBEMX芯片引脚分配
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    程序编程
-  </a>
-  
-    <nav class="md-nav" aria-label="程序编程">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#oled_show" class="md-nav__link">
-    oled_show函数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#check_sw" class="md-nav__link">
-    check_sw函数
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    实验现象
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -607,144 +560,9 @@
 
 
 
-  <h1>BlueTooth Communication</h1>
-
-<h2 id="_1">电子时钟</h2>
-<h3 id="_2">电子时钟简介</h3>
-<p>本次实验的主要目的是使用HexBot设备为实验平台，利用单片机内部功能和拓展的外设，设计程序开发一个电子钟系统。</p>
-<p>所设计的电子钟系统具有以下功能：</p>
-<ol>
-<li>使用定时器中断实现1s的定时功能，并驱动LED灯使其闪烁；</li>
-<li>完成基本的时钟功能，通过OLED屏显示当前时间，正确走时和进位；</li>
-<li>完成万年历功能，通过 OLED屏显示是当前日期；</li>
-<li>可通过矩阵按键设置当前时间和日期；</li>
-<li>增加闹钟功能，可查看并设置闹钟时间，多个闹钟可以独立控制。</li>
-</ol>
-<p>学生可在上述基本功能下，拓展诸如可以通过通信模块进行时间校准、断电后可以保存时钟时间等功能。</p>
-<h3 id="_3">硬件设计</h3>
-<p>本次实验所使用到的HexBot硬件拓展板为:</p>
-<ol>
-<li>OLED拓展板</li>
-<li>Keyboard拓展板</li>
-</ol>
-<p>其中OLED拓展板安装在HexBot主板的J2接口，键盘keyboard拓展板安装在HexBot主板的J5接口。其硬件连接如下图所示：</p>
-<p><img src="OLED_Clock.assets/1.png" alt="img" style="zoom: 50%;" /></p>
-<p>在实验中，所设计的电子钟的图像界面将展示在OLED屏幕上，将选用键盘keyboard拓展板的四个开关sw1、sw2、sw3、sw4作为控制电子钟的按键，对电子钟显示内容进行切换和设置。</p>
-<h3 id="_4">软件设计</h3>
-<h4 id="cubemx">CUBEMX芯片引脚分配</h4>
-<p><img src="OLED_Clock.assets/2.png" alt="img" style="zoom:50%;" /></p>
-<p>其中OLED屏幕使用IIC协议驱动，因此将IIC2引脚进行配置；四个开关sw1-4使用PD4、PC3、PB6、PB0四个引脚，将其配置为GPIO­_Input模式；所驱动的两排LED灯使用PC4、PC5引脚，将其配置为GPIO_Output模式。</p>
-<p>由于需要使用单片机内部的定时器功能完成1s的定时，因此需要对时钟进行配置。这里选择开发板上的外部晶振，将芯片时钟配置为72Mhz。选择TIM1时钟通道，将其PSC设置为1999，CP设置为59999，使得产生的时钟脉冲间隔为1s。随后使能其中断。</p>
-<h4 id="_5">程序编程</h4>
-<p>在main函数里面开启TIM1通道的中断，并调用两个上层函数。</p>
-<pre><code class="language-c">/* USER CODE BEGIN 2 */
-  ssd1306_Init();
-  HAL_TIM_Base_Start_IT(&amp;htim1);
-  HAL_TIM_Base_Start_IT(&amp;htim2);
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-      mode_check();
-      oled_show();
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
-  /* USER CODE END 3 */
-}
-</code></pre>
-<p>下面将简要介绍几个较为重要的函数。 </p>
-<h5 id="oled_show">oled_show函数</h5>
-<p>功能：为依据状态码的不同，选择不同界面进行展示，并将OLED缓存中的数据显示在屏幕上。</p>
-<pre><code class="language-C">void oled_show(){
-    //clock mode
-    if(clockmode == 0){
-        show_time();
-    }
-    //calendar mode
-    else if(clockmode == 1){
-        show_calendar();
-    }
-    //alarm mode
-    else if(clockmode == 2){
-        show_alarm();
-    }
-    //set mode
-    else if(clockmode == 3 || clockmode == 4 || clockmode == 5){
-        show_set();
-    }
-    //error mode
-    else if(clockmode == 6){
-        show_error();
-    }
-    //unnormal
-    else {
-        clockmode = 0;
-    }
-
-    ssd1306_Fill(Black);
-    ssd1306_SetCursor(2,0);
-    ssd1306_WriteString(line1, Font_11x18, White);
-    ssd1306_SetCursor(2,18);
-    ssd1306_WriteString(line2, Font_11x18, White);
-    ssd1306_SetCursor(2,36);
-    ssd1306_WriteString(line3, Font_11x18, White);
-    ssd1306_UpdateScreen();
-    return;
-}
-</code></pre>
-<h5 id="check_sw">check_sw函数</h5>
-<p>功能：检测是否有按键被按下，以及按下的按键为哪个。</p>
-<pre><code class="language-C">//check which sw is pressed
-int check_sw(){
-    //check if sw1 is pressed
-    if(HAL_GPIO_ReadPin(GPIOD, SW1_Pin)){
-        HAL_Delay(10);
-        if(HAL_GPIO_ReadPin(GPIOD, SW1_Pin)){
-            return 1;
-        }
-    }
-
-    //check if sw2 is pressed
-    if(HAL_GPIO_ReadPin(GPIOD, SW2_Pin)){
-        HAL_Delay(10);
-        if(HAL_GPIO_ReadPin(GPIOD, SW2_Pin)){
-            return 2;
-        }
-    }
-
-    //check if sw3 is pressed
-    if(HAL_GPIO_ReadPin(GPIOB, SW3_Pin)){
-        HAL_Delay(10);
-        if(HAL_GPIO_ReadPin(GPIOB, SW3_Pin)){
-            return 3;
-        }
-    }
-
-    //check if sw4 is pressed
-    if(HAL_GPIO_ReadPin(GPIOB, SW4_Pin)){
-        HAL_Delay(10);
-        if(HAL_GPIO_ReadPin(GPIOB, SW4_Pin)){
-            return 4;
-        }
-    }
-    return 0;
-}
-</code></pre>
-<p><br></p>
-<h3 id="_6"><strong>实验现象</strong></h3>
-<p>实验所设计的电子钟可以完成简单计时功能。</p>
-<p>其基本现象如下：</p>
-<p>HexBot主板上电后，默认进入计时功能界面</p>
-<p>按下sw4，开启时钟设置功能，轻触sw4可以切换设置位，sw3为加一，sw2为减一。结合sw2~4可对时钟时间进行修改。</p>
-<p><img src="OLED_Clock.assets/3.png" alt="img" style="zoom:80%;" /></p>
-<p>按下sw1，切换至日历界面</p>
-<p><img src="OLED_Clock.assets/4.png" alt="img" style="zoom:80%;" /></p>
-<p>再度按下sw1，切换到闹钟界面</p>
-<p><img src="OLED_Clock.assets/5.png" alt="img" style="zoom:80%;" /></p>
+<h1 id="_1">蓝牙通信</h1>
+<p>本实验通过使用JDY23蓝牙模块，可以使HEXBOT与电脑、手机通过蓝牙通信</p>
+<p>前往<a href="https://github.com/H3XBOT/STM32F103-Code/tree/main/%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1">Github</a>下载本实验代码。</p>
 
               
             </article>
@@ -754,6 +572,41 @@ int check_sw(){
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 外部中断" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              外部中断
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-footer__link md-footer__link--next" aria-label="下一页: OLED驱动" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              OLED驱动
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

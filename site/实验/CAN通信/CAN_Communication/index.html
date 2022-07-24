@@ -458,6 +458,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/BlueTooth_Communication/" class="md-nav__link">
+        蓝牙通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-nav__link">
+        OLED驱动
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../实验/外部中断/OLED_Clock.md" class="md-nav__link">
         电子时钟
       </a>
@@ -478,6 +506,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           CAN通信
@@ -494,6 +524,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -502,28 +534,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#can" class="md-nav__link">
-    can总线实现板间通信
-  </a>
-  
-    <nav class="md-nav" aria-label="can总线实现板间通信">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#can_1" class="md-nav__link">
     can总线简介
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#can_2" class="md-nav__link">
     can总线工作原理
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     软件设计
   </a>
@@ -535,11 +559,6 @@
   <a href="#can_3" class="md-nav__link">
     can总线发送的部分
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -587,6 +606,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -595,28 +616,20 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#can" class="md-nav__link">
-    can总线实现板间通信
-  </a>
-  
-    <nav class="md-nav" aria-label="can总线实现板间通信">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#can_1" class="md-nav__link">
     can总线简介
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#can_2" class="md-nav__link">
     can总线工作原理
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     软件设计
   </a>
@@ -628,11 +641,6 @@
   <a href="#can_3" class="md-nav__link">
     can总线发送的部分
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -666,24 +674,25 @@
 
 
 
-  <h1>CAN通信</h1>
-
-<h2 id="can">can总线实现板间通信</h2>
-<h4 id="can_1">can总线简介</h4>
+<h1 id="can">can总线实验</h1>
+<p>本实验实现了两块HEXBOT STM32主板之间的CAN通信。</p>
+<p>前往<a href="https://github.com/H3XBOT/STM32F103-Code/tree/main/CAN%E9%80%9A%E4%BF%A1">Github</a>下载本实验代码。</p>
+<p><br></p>
+<h2 id="can_1">can总线简介</h2>
 <p>CAN是控制器局域网络(Controller Area Network, CAN)的简称，是由以研发和生产汽车电子产品著称的德国BOSCH公司开发的，并最终成为国际标准（ISO 11898），是国际上应用最广泛的现场总线之一。 在北美和西欧，CAN总线协议已经成为汽车计算机控制系统和嵌入式工业控制局域网的标准总线，并且拥有以CAN为底层协议专为大型货车和重工机械车辆设计的J1939协议。</p>
 <p><img alt="标准" src="../CAN_Communication.assets/%E5%8D%8F%E8%AE%AE.png" /></p>
 <p>它的通信速度较快，通信距离远，最高1Mbps（距离小于40米），最远可达10千里（速率低于5Kbps）。</p>
 <p>一次最多只能发送8个字节的数据，这是由CAN协议规定的。
 多于8个的需要第二次再发送，或者做一个上层的连续多数据发送的函数。</p>
 <p>本次实验则是将can总线用于板间通信，在定时器的基础上，通过can总线实现一个开发板上的按键，对另一个开发板所连oled屏幕的控制。</p>
-<h4 id="can_2">can总线工作原理</h4>
+<h2 id="can_2">can总线工作原理</h2>
 <p><img alt="can总线原理图" src="../CAN_Communication.assets/can%E6%80%BB%E7%BA%BF%E5%8E%9F%E7%90%86%E5%9B%BE.png" /></p>
 <p>本次实验使用用的TJA1050采用的是ISO 11898标准。</p>
 <p><img alt="ISO 11898" src="../CAN_Communication.assets/ISO11898.png" /></p>
 <p>从该标准可以看出，显性电平对应逻辑0，CAN_H和CAN_L之差为2.5V左右。而隐性电平对应逻辑1，CAN_H和CAN_L之差为0V。在总线上显性电平具有优先权，只要有一个单元输出显性电平，总线上即为显性电平。而隐形电平则具有包容的意味，只有所有的单元都输出隐性电平，总线上才为隐性电平（显性电平比隐性电平更强）。另外，在CAN总线的起止端都有一个120Ω的终端电阻，来做阻抗匹配，以减少回波反射。</p>
 <p><img alt="" src="../CAN_Communication.assets/can%E7%94%B5%E8%B7%AF%E5%9B%BE%E5%BC%95%E8%84%9A%E4%BB%8B%E7%BB%8D.png" /></p>
-<h4 id="_1">软件设计</h4>
-<h5 id="can_3">can总线发送的部分</h5>
+<h2 id="_1">软件设计</h2>
+<h3 id="can_3">can总线发送的部分</h3>
 <p>CAN协议是通过以下5种类型的帧进行的：</p>
 <blockquote>
 <p>数据帧<br />
@@ -740,7 +749,7 @@ ACK段。表示确认正常接收的段。<br />
     <nav class="md-footer__inner md-grid" aria-label="页脚">
       
         
-        <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 外部中断" rel="prev">
+        <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-footer__link md-footer__link--prev" aria-label="上一页: OLED驱动" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -749,7 +758,7 @@ ACK段。表示确认正常接收的段。<br />
               <span class="md-footer__direction">
                 上一页
               </span>
-              外部中断
+              OLED驱动
             </div>
           </div>
         </a>
