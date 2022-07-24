@@ -1,0 +1,834 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
+    
+    
+      
+        <title>GPIO点灯 - HEXBOT STM32 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#led" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="HEXBOT STM32 文档" class="md-header__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            HEXBOT STM32 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPIO点灯
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/H3XBOT/H-STM32" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    H-STM32
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="HEXBOT STM32 文档" class="md-nav__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    HEXBOT STM32 文档
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/H3XBOT/H-STM32" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    H-STM32
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        前言
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          简介
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="简介" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../HEXBOT 产品介绍.md" class="md-nav__link">
+        HEXBOT 产品介绍
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          编程环境
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="编程环境" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          编程环境
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          STM32工具链
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="STM32工具链" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          STM32工具链
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE/" class="md-nav__link">
+        STM32CubeIDE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeMX/" class="md-nav__link">
+        STM32CubeMX
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Programmer/" class="md-nav__link">
+        STM32Programmer
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Utility/" class="md-nav__link">
+        STM32Utility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE_Install/" class="md-nav__link">
+        软件安装
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          实验
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GPIO点灯
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GPIO点灯
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#led" class="md-nav__link">
+    点亮LED
+  </a>
+  
+    <nav class="md-nav" aria-label="点亮LED">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO口简介
+  </a>
+  
+    <nav class="md-nav" aria-label="IO口简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32-io-8" class="md-nav__link">
+    STM32 的 IO 口可以由软件配置成如下 8 种模式：
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32 的 IO 口可以由软件配置成如下 8 种模式：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4种输入模式：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4种输出模式：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    硬件设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
+        外部中断
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../实验/外部中断/OLED_Clock.md" class="md-nav__link">
+        电子时钟
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CAN%E9%80%9A%E4%BF%A1/CAN_Communication/" class="md-nav__link">
+        CAN通信
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#led" class="md-nav__link">
+    点亮LED
+  </a>
+  
+    <nav class="md-nav" aria-label="点亮LED">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#io" class="md-nav__link">
+    IO口简介
+  </a>
+  
+    <nav class="md-nav" aria-label="IO口简介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stm32-io-8" class="md-nav__link">
+    STM32 的 IO 口可以由软件配置成如下 8 种模式：
+  </a>
+  
+    <nav class="md-nav" aria-label="STM32 的 IO 口可以由软件配置成如下 8 种模式：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4种输入模式：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4_1" class="md-nav__link">
+    4种输出模式：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    硬件设计
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/H3XBOT/H-STM32/edit/master/docs/实验/GPIO亮灯/GPIO_LED.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>GPIO点灯</h1>
+
+<h2 id="led">点亮LED</h2>
+<h3 id="io">IO口简介</h3>
+<p>本章将要实现的是控制HEXBOT中的ST-LINK板上的两组LED实现一个交替闪烁的效果，该实验的关键在于学习如何控制HEXBOT上STM32的IO口输出。了解了IO口是如何输出的，就可以实现跑马灯。通过这一章的学习，你需要初步掌握STM32基本IO口的使用，这将是你迈向STM32的第一步。</p>
+<p>每个IO口都可以自由编程，IO口寄存器要按 32 位字被访问。
+很多IO口都是 5V 兼容的，I/O Level 标 FT 的就是 5V 电平兼容的。</p>
+<h5 id="stm32-io-8">STM32 的 IO 口可以由软件配置成如下 8 种模式：</h5>
+<h6 id="4">4种输入模式：</h6>
+<p>1、 输入浮空
+2、 输入上拉
+3、 输入下拉
+4、 模拟输入</p>
+<h6 id="4_1">4种输出模式：</h6>
+<p>5、 开漏输出
+6、 推挽输出
+7、 推挽式复用功能
+8、 开漏复用功能</p>
+<p>HEXBOT的编程一般采用CubeIDE软件来完成，因此在定义单片机的IO口可以在软件内置的CubeMX中来完成，而不需要像Keil中那样来手动定义IO。</p>
+<p>STM32 的每个 IO 端口都有 7 个寄存器来控制。他们分别是：</p>
+<p>2 个 32 位的端口配置寄存器 CRL 和 CRH；
+2 个 32 位的数据寄存器 IDR 和 ODR；
+1 个 32 位的置位/复位寄存器BSRR；
+1个 16 位的复位寄存器 BRR；
+1 个 32 位的锁存寄存器 LCKR。
+CRL 和 CRH 控制着每个 IO 口的模式及输出速率。</p>
+<p>IDR 是一个端口输入数据寄存器，只用了低 16 位。该寄存器为只读寄存器，并且只能以16 位的形式读出。</p>
+<p>ODR 是一个端口输出数据寄存器，也只用了低 16 位。该寄存器为可读写，从该寄存器读出来的数据可以用于判断当前 IO 口的输出状态。而向该寄存器写数据，则可以控制某个 IO 口的输出电平。</p>
+<p>BSRR 寄存器是端口位设置/清除寄存器。该寄存器和 ODR 寄存器具有类似的作用，都可以用来设置 GPIO 端口的输出位是 1 还是 0,该寄存器通过举例子可以很清楚了解它的使用方法。例如:
+你要设置 GPIOA 的第 1 个端口值为 1，那么你只需要往寄存器 BSRR 的低 16 位对应位写 1 即可：GPIOA-&gt;BSRR=1&lt;&lt;1;你要设置 GPIOA 的第 1 个端口值为 0，你只需要往寄存器高 16 位对应为写 1 即可：GPIOA-&gt;BSRR=1&lt;&lt;(16+1)</p>
+<p>BRR 寄存器是端口位清除寄存器。该寄存器的作用跟 BSRR 的高 16 位雷同。</p>
+<p>I/O口输出模式下有三种输出速度可选（2MHz，10MHz，50MHz），这个速度是指I/O口驱动电路的响应速度；I/O管脚内部有多个响应不同的驱动电路，用户可以根据自己的需要选择合适的驱动电路。</p>
+<p>需要注意的是：</p>
+<p>GPIO口设置为输入时，输出驱动电路与端口是断开的，所以这时配置输出速度是无意义的；
+在复位期间和刚复位后，复位功能未开启，I/O端口被配置成浮空输入模式；
+所有端口都有外部中断能力，当使用外部中断功能时，端口必须设置成输入模式；
+GPIO的配置具有上锁的功能，当配置好GPIO后，可以通过程序锁住配置组合，知道下次芯片复位才能解开；</p>
+<h3 id="_1">硬件设计</h3>
+<p>本实验所涉及到的硬件只有LED，需要用到的HEXBot板为HEXBot主板和ST-Link板，不需要接其他板块。ST-Link板需要接在主板的Port0口才可以下载程序，我们点亮LED也是控制的ST-Link板上的两组LED。</p>
+<p>其原理图如下：</p>
+<p><img alt="image-20220515165456131" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515165456131.png" /></p>
+<p><img alt="image-20220515165548282" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515165548282.png" /></p>
+<p><img alt="image-20220515165603394" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515165603394.png" /></p>
+<p>主板通过Port1外接ST-Link板，其中PC6和PC7分别控制ST-Link板的两组LED。</p>
+<p>只需要设置这两个IO口的状态就可以控制LED的亮灭状态。</p>
+<h3 id="_2">软件设计</h3>
+<p>HEXBot使用的STM32F1系列的单片机，在CubeIDE编程里，我们新建工程时选择STM32F103VBT6芯片。完成后进入CubeMX图形编程界面，将引脚设计为如下所示样式：</p>
+<p><img alt="image-20220515171225019" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515171225019.png" /></p>
+<p><img alt="image-20220515171243781" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515171243781.png" /></p>
+<p>引脚定义完成后保存，然后进编程界面，新建USER文件夹，在里面新建LED文件夹和C,H头文件，格式应为../led/led.h和../led/led.c。我们在这里编写LED的驱动程序</p>
+<p>然后在c文件中编写以下程序</p>
+<p><img alt="image-20220515172024011" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515172024011.png" /></p>
+<p>在h文件中编写以下程序</p>
+<p><img alt="image-20220515172046922" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515172046922.png" /></p>
+<p>此时驱动程序已经编写完毕，现在我们进入主程序，打开Core/Src/main.c,这是主程序所在位置。</p>
+<p>首先，我们需要在主程序里面添加led驱动程序的头文件，如下所示</p>
+<p><img alt="image-20220515172442622" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515172442622.png" /></p>
+<p>然后我们可以在while函数里面编写跑马灯程序：</p>
+<p><img alt="image-20220515172528050" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515172528050.png" /></p>
+<p>值得注意的是，CubeIDE软件内置的HAL库里有延时函数，因此我们不需要额外的编写延时函数，直接调用即可。</p>
+<p>代码编写无误后，将ST-Link和电源插入电脑后，点击运行即可下载程序。程序下载完成后，ST-Link板上应该可以看到两组LED交替闪烁。</p>
+<p>以下是软件设计里面各个函数的作用：</p>
+<p>HAL_GPIO_WritePin   :给某个IO口写入0或者1</p>
+<p>GPIOC:端口组号</p>
+<p>LED1_Pin：端口标注名称</p>
+<p>GPIO_Pin_SET:电平置位（高电平）</p>
+<p>GPIO_Pin_RESET:电平置位（低电平）</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE_Install/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 软件安装" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              软件安装
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-footer__link md-footer__link--next" aria-label="下一页: 外部中断" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              外部中断
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
+      
+    
+  </body>
+</html>

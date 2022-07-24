@@ -243,8 +243,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../简介.md" class="md-nav__link">
-        简介
+      <a href="../../HEXBOT 产品介绍.md" class="md-nav__link">
+        HEXBOT 产品介绍
       </a>
     </li>
   
@@ -368,34 +368,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#11-stm32cubeide" class="md-nav__link">
-    1.1 STM32CubeIDE的下载
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-stm32cubeide" class="md-nav__link">
-    1.2 STM32CubeIDE的安装
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-stm32cubeide" class="md-nav__link">
-    1.3 STM32CubeIDE的运行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    1.4 创建项目：
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -439,8 +411,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../../STM32工具链/STM32Utility.md" class="md-nav__link">
+      <a href="../STM32Utility/" class="md-nav__link">
         STM32Utility
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../STM32CubeIDE_Install/" class="md-nav__link">
+        软件安装
       </a>
     </li>
   
@@ -494,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../实验/GPIO亮灯/GPIO_LED.md" class="md-nav__link">
+      <a href="../../%E5%AE%9E%E9%AA%8C/GPIO%E4%BA%AE%E7%81%AF/GPIO_LED/" class="md-nav__link">
         GPIO点灯
       </a>
     </li>
@@ -508,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../实验/外部中断/GPIO_LED.md" class="md-nav__link">
+      <a href="../../%E5%AE%9E%E9%AA%8C/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
         外部中断
       </a>
     </li>
@@ -524,6 +510,20 @@
     <li class="md-nav__item">
       <a href="../../实验/外部中断/OLED_Clock.md" class="md-nav__link">
         电子时钟
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%9E%E9%AA%8C/CAN%E9%80%9A%E4%BF%A1/CAN_Communication/" class="md-nav__link">
+        CAN通信
       </a>
     </li>
   
@@ -576,34 +576,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#11-stm32cubeide" class="md-nav__link">
-    1.1 STM32CubeIDE的下载
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#12-stm32cubeide" class="md-nav__link">
-    1.2 STM32CubeIDE的安装
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#13-stm32cubeide" class="md-nav__link">
-    1.3 STM32CubeIDE的运行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#14" class="md-nav__link">
-    1.4 创建项目：
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -624,8 +596,10 @@
 
 <h1 id="stm32cubeide">STM32CubeIDE</h1>
 <h3 id="_1">描述</h3>
-<p>STM32CubeIDE是一体式多操作系统开发工具，是STM32Cube软件生态系统的一部分。 </p>
+<p><a href="https://www.st.com/zh/development-tools/stm32cubeide.html">STM32CubeIDE</a>是一体式多操作系统开发工具，是STM32Cube软件生态系统的一部分。 </p>
+<p><center></p>
 <p><a href="https://www.st.com/zh/development-tools/stm32cubeide.html#"><img alt="STM32CubeIde Board Photo" src="../STM32CubeIDE.assets/image.PF267946.en.feature-description-include-personalized-no-cpn-medium.jpg" /></a></p>
+<p></center></p>
 <p>STM32CubeIDE是一种高级C/C++开发平台，具有STM32微控制器和微处理器的外设配置、代码生成、代码编译和调试功能。它基于Eclipse®/CDT™框架和用于开发的GCC工具链，以及用于调试的GDB。它支持集成数以百计的现有插件，正是这些插件使Eclipse® IDE的功能趋于完整。
 STM32CubeIDE集成了STM32CubeMX的STM32配置与项目创建功能，以便提供一体化工具体验，并节省安装与开发时间。在通过所选板卡或示例选择一个空的STM32 MCU或MPU，或者预配置微控制器或微处理器之后，将创建项目并生成初始化代码。在开发过程的任何时间，用户均可返回外设或中间件的初始化和配置阶段，并重新生成初始化代码，期间不会影响用户代码。
 STM32CubeIDE包含相关构建和堆栈分析仪，能够为用户提供有关项目状态和内存要求的有用信息。
@@ -644,35 +618,6 @@ STM32CubeIDE还具有标准和高级调试功能，其中包括CPU内核寄存�
 <li>从Atollic® TrueSTUDIO®和AC6 System Workbench for STM32 (SW4STM32)导入项目</li>
 <li>支持多种操作系统：Windows®、Linux®和macOS®，仅限64位版本</li>
 </ul>
-<p><a href="https://www.st.com/zh/development-tools/stm32cubeide.html#">
-    </a></p>
-<h2 id="11-stm32cubeide">1.1 STM32CubeIDE的下载</h2>
-<p>CubeIDE的官方下载地址：<a href="">https://www.st.com/zh/development-tools/stm32cubeide.html</a></p>
-<p>在官网可以下载最新版本和更多版本。</p>
-<p><img alt="image-20220519140850932" src="img/image-20220519140850932.png" /></p>
-<p>点击“获取软件”。</p>
-<p><img alt="image-20220519140924600" src="img/image-20220519140924600.png" /></p>
-<p>然后根据自己的电脑系统进行选择并开始下载。</p>
-<h2 id="12-stm32cubeide">1.2 STM32CubeIDE的安装</h2>
-<p>在下载完成后，会在下载文件夹得到一个zip压缩包，解压后安装（注意，必须解压后安装，不能在压缩包中安装软件。）安装过程与普通软件安装过程相同。安装过程里，在选择组件窗口中，按照默认的勾选设置安装两个组件。</p>
-<p><img alt="image-20220519141306626" src="img/image-20220519141306626.png" /></p>
-<h2 id="13-stm32cubeide">1.3 STM32CubeIDE的运行</h2>
-<p>安装完成后，运行STM32CubeIDE。</p>
-<p><strong>设置汉字编码流程</strong>：1.点击【窗口】，选择【首选项】<img src="../../../Downloads/Hexbot/typora-user-images/image-20220519142344386.png" alt="image-20220519142344386" style="zoom:50%;" /><img src="img/image-20220519142439745.png" alt="image-20220519142439745" style="zoom:33%;" /></p>
-<p>2.展开【常规】选项，选择【工作空间】，选中【文本文件编码-其他】，点击输入“GBK”，点击【应用并关闭】。</p>
-<p><img alt="image-20220519142818108" src="img/image-20220519142818108.png" /></p>
-<h2 id="14">1.4 创建项目：</h2>
-<p>1.选择菜单栏中【文件】选项，选择【新建】，选择【STM32 Project】。</p>
-<p><img alt="image-20220519144859775" src="img/image-20220519144859775.png" /></p>
-<p>2.在【Commercial Part Number】中输入芯片型号，并在右栏中进行选择，然后点击【下一步】。</p>
-<p><img alt="image-20220519145117971" src="img/image-20220519145117971.png" /></p>
-<p>3.输入项目名，并点击【完成】，即完成项目创建。</p>
-<p><img alt="image-20220519145311866" src="..\typora-user-images\image-20220519145311866.png" /></p>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
 
               
             </article>
