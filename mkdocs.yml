@@ -1,5 +1,5 @@
 site_name: HEXBOT STM32 文档
-# site_url:
+site_url: https://doc.hexbot.tech
 
 repo_name: H-STM32
 repo_url: https://github.com/H3XBOT/H-STM32
