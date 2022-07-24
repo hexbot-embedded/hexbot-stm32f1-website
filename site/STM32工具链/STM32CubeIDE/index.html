@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>HEXBOT STM32 文档</title>
+        <title>STM32CubeIDE - HEXBOT STM32 文档</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -35,7 +35,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -58,6 +58,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#stm32cubeide" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -68,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/." title="HEXBOT STM32 文档" class="md-header__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+    <a href="../.." title="HEXBOT STM32 文档" class="md-header__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -87,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              STM32CubeIDE
             
           </span>
         </div>
@@ -166,7 +171,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="HEXBOT STM32 文档" class="md-nav__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+    <a href="../.." title="HEXBOT STM32 文档" class="md-nav__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -197,7 +202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         前言
       </a>
     </li>
@@ -238,7 +243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/简介.md" class="md-nav__link">
+      <a href="../../简介.md" class="md-nav__link">
         简介
       </a>
     </li>
@@ -258,12 +263,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
       
       
       
@@ -284,12 +291,14 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
       
       
       
@@ -310,11 +319,87 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          STM32CubeIDE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         STM32CubeIDE
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    所有功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-stm32cubeide" class="md-nav__link">
+    1.1 STM32CubeIDE的下载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-stm32cubeide" class="md-nav__link">
+    1.2 STM32CubeIDE的安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-stm32cubeide" class="md-nav__link">
+    1.3 STM32CubeIDE的运行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 创建项目：
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -326,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeMX/" class="md-nav__link">
+      <a href="../STM32CubeMX/" class="md-nav__link">
         STM32CubeMX
       </a>
     </li>
@@ -340,7 +425,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Programmer/" class="md-nav__link">
+      <a href="../STM32Programmer/" class="md-nav__link">
         STM32Programmer
       </a>
     </li>
@@ -354,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32工具链/STM32Utility.md" class="md-nav__link">
+      <a href="../../STM32工具链/STM32Utility.md" class="md-nav__link">
         STM32Utility
       </a>
     </li>
@@ -409,7 +494,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/实验/GPIO亮灯/GPIO_LED.md" class="md-nav__link">
+      <a href="../../实验/GPIO亮灯/GPIO_LED.md" class="md-nav__link">
         GPIO点灯
       </a>
     </li>
@@ -423,7 +508,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/实验/外部中断/GPIO_LED.md" class="md-nav__link">
+      <a href="../../实验/外部中断/GPIO_LED.md" class="md-nav__link">
         外部中断
       </a>
     </li>
@@ -437,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/实验/外部中断/OLED_Clock.md" class="md-nav__link">
+      <a href="../../实验/外部中断/OLED_Clock.md" class="md-nav__link">
         电子时钟
       </a>
     </li>
@@ -468,6 +553,58 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    所有功能
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-stm32cubeide" class="md-nav__link">
+    1.1 STM32CubeIDE的下载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-stm32cubeide" class="md-nav__link">
+    1.2 STM32CubeIDE的安装
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-stm32cubeide" class="md-nav__link">
+    1.3 STM32CubeIDE的运行
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 创建项目：
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -478,8 +615,66 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+  <a href="https://github.com/H3XBOT/H-STM32/edit/master/docs/STM32工具链/STM32CubeIDE.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
+
+
+<h1 id="stm32cubeide">STM32CubeIDE</h1>
+<h3 id="_1">描述</h3>
+<p>STM32CubeIDE是一体式多操作系统开发工具，是STM32Cube软件生态系统的一部分。 </p>
+<p><a href="https://www.st.com/zh/development-tools/stm32cubeide.html#"><img alt="STM32CubeIde Board Photo" src="../STM32CubeIDE.assets/image.PF267946.en.feature-description-include-personalized-no-cpn-medium.jpg" /></a></p>
+<p>STM32CubeIDE是一种高级C/C++开发平台，具有STM32微控制器和微处理器的外设配置、代码生成、代码编译和调试功能。它基于Eclipse®/CDT™框架和用于开发的GCC工具链，以及用于调试的GDB。它支持集成数以百计的现有插件，正是这些插件使Eclipse® IDE的功能趋于完整。
+STM32CubeIDE集成了STM32CubeMX的STM32配置与项目创建功能，以便提供一体化工具体验，并节省安装与开发时间。在通过所选板卡或示例选择一个空的STM32 MCU或MPU，或者预配置微控制器或微处理器之后，将创建项目并生成初始化代码。在开发过程的任何时间，用户均可返回外设或中间件的初始化和配置阶段，并重新生成初始化代码，期间不会影响用户代码。
+STM32CubeIDE包含相关构建和堆栈分析仪，能够为用户提供有关项目状态和内存要求的有用信息。
+STM32CubeIDE还具有标准和高级调试功能，其中包括CPU内核寄存器、存储器和外设寄存器以及实时变量查看、串行线传输监测器接口或故障分析器的视图。</p>
+<ul>
+<li>
+<h3 id="_2">所有功能</h3>
+</li>
+<li>
+<p>通过STM32CubeMX来集成服务：STM32微控制器、微处理器、开发平台和示例项目选择引脚排列、时钟、外设和中间件配置项目创建和初始化代码生成具有增强型STM32Cube扩展包的软件和中间件</p>
+</li>
+<li>基于Eclipse®/CDT™，支持Eclipse®插件、GNU C/C++ for Arm®工具链和GDB调试器</li>
+<li>STM32MP1 系列：支持OpenSTLinux项目：Linux支持Linux</li>
+<li>其他高级调试功能包括：CPU内核、外设寄存器和内存视图实时变量查看视图系统分析与实时跟踪(SWV)CPU故障分析工具支持RTOS感知调试，包括Azure</li>
+<li>支持ST-LINK（意法半导体）和J-Link (SEGGER)调试探头</li>
+<li>从Atollic® TrueSTUDIO®和AC6 System Workbench for STM32 (SW4STM32)导入项目</li>
+<li>支持多种操作系统：Windows®、Linux®和macOS®，仅限64位版本</li>
+</ul>
+<p><a href="https://www.st.com/zh/development-tools/stm32cubeide.html#">
+    </a></p>
+<h2 id="11-stm32cubeide">1.1 STM32CubeIDE的下载</h2>
+<p>CubeIDE的官方下载地址：<a href="">https://www.st.com/zh/development-tools/stm32cubeide.html</a></p>
+<p>在官网可以下载最新版本和更多版本。</p>
+<p><img alt="image-20220519140850932" src="img/image-20220519140850932.png" /></p>
+<p>点击“获取软件”。</p>
+<p><img alt="image-20220519140924600" src="img/image-20220519140924600.png" /></p>
+<p>然后根据自己的电脑系统进行选择并开始下载。</p>
+<h2 id="12-stm32cubeide">1.2 STM32CubeIDE的安装</h2>
+<p>在下载完成后，会在下载文件夹得到一个zip压缩包，解压后安装（注意，必须解压后安装，不能在压缩包中安装软件。）安装过程与普通软件安装过程相同。安装过程里，在选择组件窗口中，按照默认的勾选设置安装两个组件。</p>
+<p><img alt="image-20220519141306626" src="img/image-20220519141306626.png" /></p>
+<h2 id="13-stm32cubeide">1.3 STM32CubeIDE的运行</h2>
+<p>安装完成后，运行STM32CubeIDE。</p>
+<p><strong>设置汉字编码流程</strong>：1.点击【窗口】，选择【首选项】<img src="../../../Downloads/Hexbot/typora-user-images/image-20220519142344386.png" alt="image-20220519142344386" style="zoom:50%;" /><img src="img/image-20220519142439745.png" alt="image-20220519142439745" style="zoom:33%;" /></p>
+<p>2.展开【常规】选项，选择【工作空间】，选中【文本文件编码-其他】，点击输入“GBK”，点击【应用并关闭】。</p>
+<p><img alt="image-20220519142818108" src="img/image-20220519142818108.png" /></p>
+<h2 id="14">1.4 创建项目：</h2>
+<p>1.选择菜单栏中【文件】选项，选择【新建】，选择【STM32 Project】。</p>
+<p><img alt="image-20220519144859775" src="img/image-20220519144859775.png" /></p>
+<p>2.在【Commercial Part Number】中输入芯片型号，并在右栏中进行选择，然后点击【下一步】。</p>
+<p><img alt="image-20220519145117971" src="img/image-20220519145117971.png" /></p>
+<p>3.输入项目名，并点击【完成】，即完成项目创建。</p>
+<p><img alt="image-20220519145311866" src="..\typora-user-images\image-20220519145311866.png" /></p>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre>
+
+              
             </article>
           </div>
         </div>
@@ -487,6 +682,41 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="上一页: 前言" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              前言
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../STM32CubeMX/" class="md-footer__link md-footer__link--next" aria-label="下一页: STM32CubeMX" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              STM32CubeMX
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -508,10 +738,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
     
   </body>
