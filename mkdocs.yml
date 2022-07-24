@@ -18,7 +18,7 @@ theme:
 nav:
   - 前言: "index.md"
   - 简介:
-    - HEXBOT 产品介绍: "HEXBOT 产品介绍.md"
+    - HEXBOT 产品介绍: "HEXBOT产品介绍.md"
   - 编程环境:
     - STM32工具链:
       - STM32CubeIDE: "STM32工具链/STM32CubeIDE.md"
