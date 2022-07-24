@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#led" class="md-skip">
+        <a href="#gpio-led" class="md-skip">
           跳转至
         </a>
       
@@ -436,6 +436,8 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
           GPIO点灯
@@ -452,6 +454,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -460,69 +464,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#led" class="md-nav__link">
-    点亮LED
-  </a>
-  
-    <nav class="md-nav" aria-label="点亮LED">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#io" class="md-nav__link">
     IO口简介
   </a>
   
-    <nav class="md-nav" aria-label="IO口简介">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stm32-io-8" class="md-nav__link">
-    STM32 的 IO 口可以由软件配置成如下 8 种模式：
-  </a>
-  
-    <nav class="md-nav" aria-label="STM32 的 IO 口可以由软件配置成如下 8 种模式：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4种输入模式：
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
-    4种输出模式：
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     硬件设计
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     软件设计
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -543,6 +501,34 @@
     <li class="md-nav__item">
       <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
         外部中断
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/BlueTooth_Communication/" class="md-nav__link">
+        蓝牙通信
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-nav__link">
+        OLED驱动
       </a>
     </li>
   
@@ -600,6 +586,8 @@
   
   
   
+    
+  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -608,69 +596,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#led" class="md-nav__link">
-    点亮LED
-  </a>
-  
-    <nav class="md-nav" aria-label="点亮LED">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#io" class="md-nav__link">
     IO口简介
   </a>
   
-    <nav class="md-nav" aria-label="IO口简介">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stm32-io-8" class="md-nav__link">
-    STM32 的 IO 口可以由软件配置成如下 8 种模式：
-  </a>
-  
-    <nav class="md-nav" aria-label="STM32 的 IO 口可以由软件配置成如下 8 种模式：">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4种输入模式：
-  </a>
-  
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4_1" class="md-nav__link">
-    4种输出模式：
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     硬件设计
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     软件设计
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -692,24 +634,38 @@
 
 
 
-  <h1>GPIO点灯</h1>
+<h1 id="gpio-led">GPIO LED</h1>
+<!-- 本实验实现了两块HEXBOT STM32主板之间的CAN通信。
 
-<h2 id="led">点亮LED</h2>
-<h3 id="io">IO口简介</h3>
+前往[Github](https://github.com/H3XBOT/STM32F103-Code/tree/main/CAN%E9%80%9A%E4%BF%A1)下载本实验代码。 -->
+
+<h2 id="io">IO口简介</h2>
 <p>本章将要实现的是控制HEXBOT中的ST-LINK板上的两组LED实现一个交替闪烁的效果，该实验的关键在于学习如何控制HEXBOT上STM32的IO口输出。了解了IO口是如何输出的，就可以实现跑马灯。通过这一章的学习，你需要初步掌握STM32基本IO口的使用，这将是你迈向STM32的第一步。</p>
 <p>每个IO口都可以自由编程，IO口寄存器要按 32 位字被访问。
 很多IO口都是 5V 兼容的，I/O Level 标 FT 的就是 5V 电平兼容的。</p>
-<h5 id="stm32-io-8">STM32 的 IO 口可以由软件配置成如下 8 种模式：</h5>
-<h6 id="4">4种输入模式：</h6>
-<p>1、 输入浮空
-2、 输入上拉
-3、 输入下拉
-4、 模拟输入</p>
-<h6 id="4_1">4种输出模式：</h6>
-<p>5、 开漏输出
-6、 推挽输出
-7、 推挽式复用功能
-8、 开漏复用功能</p>
+<p>STM32 的 IO 口可以由软件配置成如下 8 种模式</p>
+<ul>
+<li>
+<p>4种输入模式：</p>
+</li>
+<li>
+<p>输入浮空</p>
+</li>
+<li>输入上拉</li>
+<li>输入下拉</li>
+<li>
+<p>模拟输入</p>
+</li>
+<li>
+<p>4种输出模式：</p>
+</li>
+<li>
+<p>开漏输出</p>
+</li>
+<li>推挽输出</li>
+<li>推挽式复用功能</li>
+<li>开漏复用功能</li>
+</ul>
 <p>HEXBOT的编程一般采用CubeIDE软件来完成，因此在定义单片机的IO口可以在软件内置的CubeMX中来完成，而不需要像Keil中那样来手动定义IO。</p>
 <p>STM32 的每个 IO 端口都有 7 个寄存器来控制。他们分别是：</p>
 <p>2 个 32 位的端口配置寄存器 CRL 和 CRH；
@@ -729,7 +685,7 @@ CRL 和 CRH 控制着每个 IO 口的模式及输出速率。</p>
 在复位期间和刚复位后，复位功能未开启，I/O端口被配置成浮空输入模式；
 所有端口都有外部中断能力，当使用外部中断功能时，端口必须设置成输入模式；
 GPIO的配置具有上锁的功能，当配置好GPIO后，可以通过程序锁住配置组合，知道下次芯片复位才能解开；</p>
-<h3 id="_1">硬件设计</h3>
+<h2 id="_1">硬件设计</h2>
 <p>本实验所涉及到的硬件只有LED，需要用到的HEXBot板为HEXBot主板和ST-Link板，不需要接其他板块。ST-Link板需要接在主板的Port0口才可以下载程序，我们点亮LED也是控制的ST-Link板上的两组LED。</p>
 <p>其原理图如下：</p>
 <p><img alt="image-20220515165456131" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515165456131.png" /></p>
@@ -737,7 +693,7 @@ GPIO的配置具有上锁的功能，当配置好GPIO后，可以通过程序锁
 <p><img alt="image-20220515165603394" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515165603394.png" /></p>
 <p>主板通过Port1外接ST-Link板，其中PC6和PC7分别控制ST-Link板的两组LED。</p>
 <p>只需要设置这两个IO口的状态就可以控制LED的亮灭状态。</p>
-<h3 id="_2">软件设计</h3>
+<h2 id="_2">软件设计</h2>
 <p>HEXBot使用的STM32F1系列的单片机，在CubeIDE编程里，我们新建工程时选择STM32F103VBT6芯片。完成后进入CubeMX图形编程界面，将引脚设计为如下所示样式：</p>
 <p><img alt="image-20220515171225019" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515171225019.png" /></p>
 <p><img alt="image-20220515171243781" src="C:\Users\LOVE\AppData\Roaming\Typora\typora-user-images\image-20220515171243781.png" /></p>
