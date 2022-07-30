@@ -36,3 +36,4 @@ nav:
     - OLED驱动: "实验/OLED驱动/OLED1306.md"
     - 电子时钟: "实验/外部中断/OLED_Clock.md"
     - CAN通信: "实验/CAN通信/CAN_Communication.md"
+    - USART通信: "实验/USART通信/USART_Communication.md"
