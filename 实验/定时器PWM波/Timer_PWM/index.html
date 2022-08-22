@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.15">
     
     
       
-        <title>HEXBOT STM32 文档</title>
+        <title>定时器PWM - HEXBOT STM32 文档</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.c382b1dc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c382b1dc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.cc9b2e1e.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cc9b2e1e.min.css">
         
       
     
@@ -35,7 +35,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -58,6 +58,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#-pwm" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -68,7 +73,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="/." title="HEXBOT STM32 文档" class="md-header__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+    <a href="../../.." title="HEXBOT STM32 文档" class="md-header__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -87,7 +92,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              定时器PWM
             
           </span>
         </div>
@@ -166,7 +171,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="HEXBOT STM32 文档" class="md-nav__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
+    <a href="../../.." title="HEXBOT STM32 文档" class="md-nav__button md-logo" aria-label="HEXBOT STM32 文档" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -197,7 +202,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         前言
       </a>
     </li>
@@ -238,7 +243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E7%AE%80%E4%BB%8B/HEXBOT%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
+      <a href="../../../%E7%AE%80%E4%BB%8B/HEXBOT%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D/" class="md-nav__link">
         HEXBOT 产品介绍
       </a>
     </li>
@@ -312,7 +317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE/" class="md-nav__link">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE/" class="md-nav__link">
         STM32CubeIDE
       </a>
     </li>
@@ -326,7 +331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeMX/" class="md-nav__link">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeMX/" class="md-nav__link">
         STM32CubeMX
       </a>
     </li>
@@ -340,7 +345,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Programmer/" class="md-nav__link">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Programmer/" class="md-nav__link">
         STM32Programmer
       </a>
     </li>
@@ -354,7 +359,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Utility/" class="md-nav__link">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32Utility/" class="md-nav__link">
         STM32Utility
       </a>
     </li>
@@ -368,7 +373,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE_Install/" class="md-nav__link">
+      <a href="../../../STM32%E5%B7%A5%E5%85%B7%E9%93%BE/STM32CubeIDE_Install/" class="md-nav__link">
         软件安装
       </a>
     </li>
@@ -395,12 +400,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -423,7 +430,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/GPIO%E4%BA%AE%E7%81%AF/GPIO_LED/" class="md-nav__link">
+      <a href="../../GPIO%E4%BA%AE%E7%81%AF/GPIO_LED/" class="md-nav__link">
         GPIO点灯
       </a>
     </li>
@@ -437,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
+      <a href="../../%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD/" class="md-nav__link">
         外部中断
       </a>
     </li>
@@ -451,7 +458,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/BlueTooth_Communication/" class="md-nav__link">
+      <a href="../../%E8%93%9D%E7%89%99%E9%80%9A%E4%BF%A1/BlueTooth_Communication/" class="md-nav__link">
         蓝牙通信
       </a>
     </li>
@@ -465,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/7%E6%AE%B5%E7%A0%81%E6%95%B0%E7%A0%81%E7%AE%A1/7Segment/" class="md-nav__link">
+      <a href="../../7%E6%AE%B5%E7%A0%81%E6%95%B0%E7%A0%81%E7%AE%A1/7Segment/" class="md-nav__link">
         7段码数码管
       </a>
     </li>
@@ -479,7 +486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-nav__link">
+      <a href="../../OLED%E9%A9%B1%E5%8A%A8/OLED1306/" class="md-nav__link">
         OLED驱动
       </a>
     </li>
@@ -493,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/%E7%94%B5%E5%AD%90%E6%97%B6%E9%92%9F/OLED_Clock/" class="md-nav__link">
+      <a href="../../%E7%94%B5%E5%AD%90%E6%97%B6%E9%92%9F/OLED_Clock/" class="md-nav__link">
         电子时钟
       </a>
     </li>
@@ -507,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/CAN%E9%80%9A%E4%BF%A1/CAN_Communication/" class="md-nav__link">
+      <a href="../../CAN%E9%80%9A%E4%BF%A1/CAN_Communication/" class="md-nav__link">
         CAN通信
       </a>
     </li>
@@ -521,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/%E5%AE%9A%E6%97%B6%E5%99%A8/Timer/" class="md-nav__link">
+      <a href="../../%E5%AE%9A%E6%97%B6%E5%99%A8/Timer/" class="md-nav__link">
         定时器
       </a>
     </li>
@@ -533,11 +540,66 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="/%E5%AE%9E%E9%AA%8C/%E5%AE%9A%E6%97%B6%E5%99%A8PWM%E6%B3%A2/Timer_PWM/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          定时器PWM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         定时器PWM
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pwm" class="md-nav__link">
+    PWM波简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    硬件设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件设计
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -566,6 +628,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pwm" class="md-nav__link">
+    PWM波简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    硬件设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件设计
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -576,8 +669,38 @@
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
-  <h1>404 - Not found</h1>
+                
+  <a href="https://github.com/H3XBOT/H-STM32/edit/master/docs/实验/定时器PWM波/Timer_PWM.md" title="编辑此页" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
 
+
+
+<h1 id="-pwm">定时器-PWM控制</h1>
+<h2 id="pwm">PWM波简介</h2>
+<p>PWM是Pulse Width Modulation的缩写，它的中文名字是脉冲宽度调制，一种说法是它利用微处理器的数字输出来对模拟电路进行控制的一种有效的技术，其实就是使用数字信号达到一个模拟信号的效果。</p>
+<p><img alt="波形" src="../Timer_PWM.assets/%E6%B3%A2%E5%BD%A2.png" /></p>
+<p>这是一个周期是 10ms，即频率是 100Hz 的波形，但是每个周期内，高低电平脉冲宽度各不相同，这就是 PWM 的本质。在这里大家要记住一个概念，叫做“占空比”。占空比是指高电平的时间占整个周期的比例。比如第一部分波形的占空比是 50%，第二部分波形占空比是 60%，第三部分波形占空比是 67.5%，这就是 PWM 的解释。</p>
+<p>那为何它能对模拟电路进行控制呢？大家想一想，我们数字电路里，只有 0 和 1 两种状态，比如我们第 2一个实验里学会的点亮 LED 小灯那个程序，当我们写一个 LED = 0;小灯就会长亮，当我们写一个 LED = 1;小灯就会灭掉。当我们让小灯亮和灭间隔运行的时候，小灯是闪烁。</p>
+<p>如果我们把这个间隔不断的减小，减小到我们的肉眼分辨不出来，也就是 100Hz 以上的频率，这个时候小灯表现出来的现象就是既保持亮的状态，但亮度又没有 LED = 0;时的亮度高。那我们不断改变时间参数，让 LED = 0;的时间大于或者小于 LED = 1;的时间，会发现亮度都不一样，这就是模拟电路的感觉了，不再是纯粹的 0 和 1，还有亮度不断变化。大家会发现，如果我们用 100Hz 的信号，如上图所示，假如高电平熄灭小灯，低电平点亮小灯的话，第一部分波形熄灭 2ms，点亮 2ms，亮度最高，第二部分熄灭 2ms，点亮 3ms，亮度次之，第三部分熄灭 3ms，点亮5ms，亮度最低。那么用程序验证一下我们的理论，我们用定时器T0 定时改变 端口的输出来实现 PWM，与纯定时不同的是，这里我们每周期内都要重载两次定时器初值，即用两个不同的初值来控制高低电平的不同持续时间。为了使亮度的变化更加明显，程序中使用的占空比差距更大。</p>
+<h2 id="_1">硬件设计</h2>
+<p>STM32单片机并不是所有的IO口都可以输出PWM波，而是在某些特定的引脚可以输出PWM波，因此在使用单片机的pwm波输出功能时，首先要通过芯片手册查询哪些引脚可以输出pwm波。通过查看hexbot开发板的原理图可以知道有六个脚可以输出pwm波，我们任意选取其中的一组来输出即可，这里我选择的是Port5和Port1两个电机块上面的pwm波输出口。</p>
+<p><img alt="" src="../Timer_PWM.assets/%E5%8E%9F%E7%90%86%E5%9B%BE.png" /></p>
+<h2 id="_2">软件设计</h2>
+<p>在选好pwm口后，我们打开CubeIDE进入Cube_MX图形界面进行引脚分配。设置成如下所示：</p>
+<p><img alt="" src="../Timer_PWM.assets/%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89.png" /></p>
+<p>IO口设置为：</p>
+<p><img alt="" src="../Timer_PWM.assets/IO%E5%8F%A3%E8%AE%BE%E7%BD%AE.png" /></p>
+<p>三个定时器设置分别为TIM1,TIM2,TIM3,如下：</p>
+<p><img alt="" src="../Timer_PWM.assets/%E5%AE%9A%E6%97%B6%E5%99%A81.png" /></p>
+<p><img alt="" src="../Timer_PWM.assets/%E5%AE%9A%E6%97%B6%E5%99%A82.png" /></p>
+<p><img alt="" src="../Timer_PWM.assets/%E5%AE%9A%E6%97%B6%E5%99%A83.png" /></p>
+<p>定义完成后进入主程序编辑界面：</p>
+<p>在主程序里编写以下代码：</p>
+<p><img alt="" src="../Timer_PWM.assets/%E4%B8%BB%E7%A8%8B%E5%BA%8F.png" /></p>
+<p>编写完成后烧录进开发板上面后可以看到所有块上面的LED亮起，同时两个电机块的电机开始转动。</p>
+
+              
             </article>
           </div>
         </div>
@@ -585,6 +708,26 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../../%E5%AE%9A%E6%97%B6%E5%99%A8/Timer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 定时器" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              定时器
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -606,10 +749,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "/", "features": [], "search": "/assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.a6c66575.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a6c66575.min.js"></script>
       
     
   </body>
